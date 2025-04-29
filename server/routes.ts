@@ -56,10 +56,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       const user = req.user;
-      const matchData = insertMatchSchema.parse({
+      // Process the request body to pre-handle date conversion
+      const requestData = {
         ...req.body,
-        creatorId: user.id
-      });
+        creatorId: user.id,
+        // Convert date string to Date object if it's a string
+        date: req.body.date ? new Date(req.body.date) : undefined
+      };
+      
+      const matchData = insertMatchSchema.parse(requestData);
       
       const match = await storage.createMatch(matchData);
       

@@ -68,22 +68,28 @@ export const insertUserSchema = createInsertSchema(users).pick({
   language: true
 }).omit({ createdAt: true });
 
-export const insertMatchSchema = createInsertSchema(matches).pick({
-  title: true,
-  fieldType: true,
-  date: true,
-  duration: true,
-  playersNeeded: true,
-  playersTotal: true,
-  location: true,
-  coordinates: true,
-  complexName: true,
-  complexUrl: true,
-  pricePerPlayer: true,
-  additionalInfo: true,
-  isPrivate: true,
-  creatorId: true
-}).omit({ createdAt: true });
+export const insertMatchSchema = createInsertSchema(matches)
+  .pick({
+    title: true,
+    fieldType: true,
+    date: true,
+    duration: true,
+    playersNeeded: true,
+    playersTotal: true,
+    location: true,
+    coordinates: true,
+    complexName: true,
+    complexUrl: true,
+    pricePerPlayer: true,
+    additionalInfo: true,
+    isPrivate: true,
+    creatorId: true
+  })
+  .omit({ createdAt: true })
+  .extend({
+    // Allow string input for date that will be converted to Date object
+    date: z.string().or(z.date()).transform(val => new Date(val))
+  });
 
 export const insertParticipantSchema = createInsertSchema(participants).pick({
   matchId: true,
