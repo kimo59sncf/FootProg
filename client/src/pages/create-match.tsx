@@ -53,7 +53,7 @@ export default function CreateMatch() {
   }).refine((data) => {
     // If field type is paid, complex name and price are required
     if (data.fieldType === "paid") {
-      return !!data.complexName && data.pricePerPlayer !== undefined && data.pricePerPlayer > 0;
+      return !!data.complexName && typeof data.pricePerPlayer === 'number' && data.pricePerPlayer > 0;
     }
     return true;
   }, {
@@ -73,6 +73,7 @@ export default function CreateMatch() {
       coordinates: "",
       complexName: "",
       complexUrl: "",
+      pricePerPlayer: 0,
       additionalInfo: "",
       isPrivate: false,
     },
@@ -85,13 +86,13 @@ export default function CreateMatch() {
       const [hours, minutes] = values.time.split(':').map(Number);
       dateTime.setHours(hours, minutes);
 
+      // Create a new object without the time property and with the formatted date
       const matchData = {
         ...values,
         date: dateTime.toISOString(),
         creatorId: user!.id,
+        time: undefined // This will be omitted when converted to JSON
       };
-
-      delete matchData.time; // Remove time as it's now combined with date
 
       const res = await apiRequest("POST", "/api/matches", matchData);
       return await res.json();
