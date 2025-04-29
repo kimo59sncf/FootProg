@@ -132,7 +132,7 @@ export function MatchFilter({ onFilter, isLoading = false }: MatchFilterProps) {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="">{t("filter.allFields")}</SelectItem>
+                      <SelectItem value="all">{t("filter.allFields")}</SelectItem>
                       <SelectItem value="free">{t("filter.freeField")}</SelectItem>
                       <SelectItem value="paid">{t("filter.paidField")}</SelectItem>
                     </SelectContent>
@@ -158,7 +158,7 @@ export function MatchFilter({ onFilter, isLoading = false }: MatchFilterProps) {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="">{t("filter.any")}</SelectItem>
+                      <SelectItem value="any">{t("filter.any")}</SelectItem>
                       <SelectItem value="1">{t("filter.atLeast", { count: 1 })}</SelectItem>
                       <SelectItem value="2">{t("filter.atLeast", { count: 2 })}</SelectItem>
                       <SelectItem value="5">{t("filter.atLeast", { count: 5 })}</SelectItem>
