@@ -39,14 +39,15 @@ const registrationSchema = insertUserSchema.extend({
 export function setupAuth(app: Express) {
   const sessionSettings: session.SessionOptions = {
     secret: process.env.SESSION_SECRET || "football-connect-session-secret",
-    resave: false,
-    saveUninitialized: false,
+    resave: true,
+    saveUninitialized: true,
     store: storage.sessionStore,
     cookie: {
-      secure: process.env.NODE_ENV === "production",
+      secure: false, // Set to false for development
       maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
       httpOnly: true,
-      sameSite: 'lax'
+      sameSite: 'lax',
+      path: '/'
     }
   };
 
