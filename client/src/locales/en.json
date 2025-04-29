@@ -1,0 +1,334 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "submit": "Submit",
+    "search": "Search",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "more": "More",
+    "less": "Less"
+  },
+  "nav": {
+    "home": "Home",
+    "findMatch": "Find Match",
+    "createMatch": "Create Match",
+    "howItWorks": "How It Works",
+    "login": "Login",
+    "register": "Sign Up",
+    "logout": "Logout",
+    "profile": "My Profile",
+    "openMenu": "Open Menu"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Sign Up",
+    "username": "Username",
+    "usernamePlaceholder": "Enter your username",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "firstName": "First Name",
+    "firstNamePlaceholder": "Enter your first name",
+    "lastName": "Last Name",
+    "lastNamePlaceholder": "Enter your last name",
+    "welcomeMessage": "Welcome to FootballConnect, join our community!",
+    "loggingIn": "Logging in...",
+    "registering": "Signing up...",
+    "loginSuccess": "Login successful",
+    "welcomeBack": "Welcome back, {{name}}!",
+    "loginFailed": "Login failed",
+    "registerSuccess": "Registration successful",
+    "accountCreated": "Your account has been created successfully",
+    "registerFailed": "Registration failed",
+    "logoutSuccess": "Logout successful",
+    "seeSoonAgain": "See you soon!",
+    "logoutFailed": "Logout failed",
+    "validation": {
+      "username": "Username must be at least 3 characters",
+      "email": "Please provide a valid email address",
+      "password": "Password must be at least 6 characters"
+    },
+    "hero": {
+      "title": "The easiest way to play football",
+      "feature1": "Find available matches near you",
+      "feature2": "Join a community of football enthusiasts",
+      "feature3": "Organize your own matches and find players",
+      "quote": "FootballConnect has been a game-changer for me, I can now play football several times a week!"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": {
+        "start": "Your",
+        "highlight": "football",
+        "end": "match at your fingertips"
+      },
+      "subtitle": "Find players or join a match near you. Whether you're looking for a free field or a 5-a-side pitch, FootballConnect makes organizing amateur matches easy.",
+      "findMatch": "Find a Match",
+      "createMatch": "Create a Match"
+    },
+    "features": {
+      "find": {
+        "title": "Find a Match",
+        "description": "Search for available matches in your city or neighborhood, filter by date, field type, and availability."
+      },
+      "organize": {
+        "title": "Organize Easily",
+        "description": "Create and manage your matches with a few clicks, invite players and track registrations in real time."
+      },
+      "play": {
+        "title": "Play Together",
+        "description": "Join a community of enthusiasts, participate in matches and expand your network of players."
+      }
+    },
+    "matches": {
+      "title": "Available Matches Near You",
+      "subtitle": "Find and join matches organized by other players in your area",
+      "viewMore": "View more matches",
+      "noMatches": "No matches available at the moment",
+      "createFirst": "Create the first match"
+    },
+    "cta": {
+      "title": "Ready to join the community?",
+      "description": "Create your account in a few clicks and start finding matches near you or organizing your own events.",
+      "register": "Sign up for free",
+      "learnMore": "Learn more"
+    }
+  },
+  "filter": {
+    "location": "Location",
+    "locationPlaceholder": "City or postal code",
+    "date": "Date",
+    "selectDate": "Select a date",
+    "fieldType": "Field Type",
+    "allFields": "All fields",
+    "freeField": "Free field",
+    "paidField": "Paid field",
+    "availableSpots": "Available spots",
+    "any": "Any",
+    "atLeast": "At least {{count}}",
+    "search": "Search",
+    "moreFilters": "More filters",
+    "lessFilters": "Less filters"
+  },
+  "findMatches": {
+    "title": "Find a Match Near You",
+    "subtitle": "Use the filters below to find the match that suits you",
+    "searching": "Searching...",
+    "resultsCount": "{{count}} match found",
+    "resultsCount_plural": "{{count}} matches found",
+    "listView": "List",
+    "mapView": "Map",
+    "noMatches": "No matches match your criteria",
+    "tryAdjusting": "Try adjusting your filters or create your own match",
+    "discoverMatches": "Discover matches around you",
+    "yourArea": "Your area"
+  },
+  "match": {
+    "freeField": "Free field",
+    "paidField": "Paid field",
+    "free": "Free",
+    "perPlayer": "player",
+    "players": "players",
+    "organizedBy": "Organized by",
+    "join": "Join",
+    "joining": "Joining...",
+    "details": "Details",
+    "full": "Full",
+    "joinThisMatch": "Join this match",
+    "joinSuccess": "Match joined",
+    "joinSuccessMessage": "You have successfully joined the match",
+    "joinError": "Error joining match",
+    "leaveMatch": "Leave match",
+    "leaving": "Leaving...",
+    "leaveSuccess": "Match left",
+    "leaveSuccessMessage": "You have successfully left the match",
+    "leaveError": "Error leaving match",
+    "cannotLeave": "Cannot leave",
+    "creatorCannotLeave": "Organizers cannot leave their own matches",
+    "authRequired": "Authentication required",
+    "loginToJoin": "Please log in to join this match",
+    "loginToChat": "Please log in to send messages",
+    "participationRequired": "Participation required",
+    "joinToChat": "You must join the match to participate in the discussion",
+    "aboutThisMatch": "About this match",
+    "noAdditionalInfo": "No additional information provided by the organizer.",
+    "complex": "Sports Complex",
+    "visitWebsite": "Visit website",
+    "practicalInfo": "Practical information",
+    "bringSneakers": "Don't forget your football shoes",
+    "noInfoProvided": "No practical information provided",
+    "participants": "Participants",
+    "chat": "Chat",
+    "discussion": "Discussion",
+    "organizer": "Organizer",
+    "confirmed": "Confirmed",
+    "yourMessage": "Your message...",
+    "messageSendError": "Error sending message",
+    "noMessages": "No messages yet",
+    "availableSpot": "Available spot",
+    "notFound": "Match not found",
+    "notFoundDesc": "The match you are looking for does not exist or has been deleted",
+    "browseMatches": "Browse available matches",
+    "municipalField": "Municipal field"
+  },
+  "map": {
+    "location": "Location",
+    "openInGoogleMaps": "Open in Google Maps"
+  },
+  "createMatch": {
+    "title": "Create Your Match",
+    "subtitle": "Easily organize your own match and find players to complete your team",
+    "creating": "Creating...",
+    "submit": "Create Match",
+    "success": "Match created",
+    "matchCreated": "Your match has been created successfully",
+    "error": "Error creating match",
+    "validation": {
+      "titleRequired": "Match title is required",
+      "fieldTypeRequired": "Please select a field type",
+      "dateRequired": "Match date is required",
+      "timeRequired": "Match time is required",
+      "durationMin": "Minimum duration is 30 minutes",
+      "durationMax": "Maximum duration is 4 hours",
+      "playersMin": "At least 1 player is required",
+      "playersMax": "Maximum is 22 players",
+      "totalPlayersMin": "At least 2 players are required in total",
+      "totalPlayersMax": "Maximum is 22 players in total",
+      "locationRequired": "Match location is required",
+      "paidFieldRequirements": "For a paid field, the complex name and price per player are required"
+    },
+    "form": {
+      "title": "Match title",
+      "titlePlaceholder": "Ex: Friendly match in Central Park",
+      "fieldType": "Field type",
+      "freeField": "Free field",
+      "paidField": "Paid field",
+      "dateAndTime": "Date and time",
+      "selectDate": "Select a date",
+      "duration": "Duration (in minutes)",
+      "playersNeeded": "Number of players needed",
+      "totalPlayers": "Total number of players",
+      "location": "Match location",
+      "locationPlaceholder": "Address or complex name",
+      "selectLocation": "Select a location on the map",
+      "paidFieldInfo": "Paid field information",
+      "complexName": "Complex name",
+      "complexNamePlaceholder": "Ex: SportsWorld, PowerLeague...",
+      "pricePerPlayer": "Price per player (€)",
+      "complexUrl": "Link to the complex (optional)",
+      "additionalInfo": "Additional information",
+      "additionalInfoPlaceholder": "Skill level, equipment to bring, etc.",
+      "privateMatch": "Make this match private (accessible only via invitation link)"
+    }
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "Joining or organizing a match has never been easier",
+    "step1": {
+      "title": "Create your account",
+      "description": "Sign up in seconds with your email or via social networks."
+    },
+    "step2": {
+      "title": "Find or create a match",
+      "description": "Search for available matches near you or easily create your own."
+    },
+    "step3": {
+      "title": "Play and meet",
+      "description": "Join other enthusiasts on the field and expand your network of players."
+    },
+    "findMatches": {
+      "title": "Find Matches",
+      "subtitle": "How to find and join existing matches",
+      "cta": "Find a match now",
+      "step1": {
+        "title": "Search",
+        "description": "Use filters to find matches by location, date, or field type."
+      },
+      "step2": {
+        "title": "Choose",
+        "description": "Check the details of available matches and find the one that suits you."
+      },
+      "step3": {
+        "title": "Join",
+        "description": "Click on 'Join' and confirm your participation in the match."
+      },
+      "step4": {
+        "title": "Chat",
+        "description": "Communicate with other participants via the match chat."
+      }
+    },
+    "createMatch": {
+      "title": "Create a Match",
+      "subtitle": "How to organize your own football match",
+      "cta": "Create a match",
+      "step1": {
+        "title": "Fill out the form",
+        "description": "Indicate the title, date, time, location and details of your match."
+      },
+      "step2": {
+        "title": "Specify the details",
+        "description": "Indicate the field type (free or paid), number of players and other important information."
+      },
+      "step3": {
+        "title": "Manage participants",
+        "description": "Track registrations, communicate with participants and organize your match."
+      },
+      "tips": {
+        "title": "Tips for a successful match",
+        "tip1": "Choose a popular time (weekday evenings or weekend)",
+        "tip2": "Give precise details about the location and how to access it",
+        "tip3": "Be clear about the expected level and atmosphere of the match",
+        "tip4": "Plan for some equipment (bibs, balls) if possible"
+      }
+    },
+    "cta": {
+      "title": "Ready to play?",
+      "description": "Join our community and start enjoying football matches near you.",
+      "register": "Sign up now",
+      "browse": "Browse matches"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Everything you need to know about FootballConnect",
+      "q1": "How can I cancel my participation in a match?",
+      "a1": "Go to the match page and click on the 'Leave match' button. Note that organizers cannot leave their own matches.",
+      "q2": "Are the fields reserved by FootballConnect?",
+      "a2": "No, FootballConnect is a connecting platform. For paid fields, the organizer is responsible for the reservation.",
+      "q3": "Can I participate without creating an account?",
+      "a3": "No, you must create an account to join or create matches. This ensures the security and reliability of the system.",
+      "q4": "How does payment work for paid fields?",
+      "a4": "Payment is made directly between participants and the organizer. FootballConnect does not intervene in financial transactions.",
+      "q5": "Can I organize regular matches?",
+      "a5": "Yes, you can create as many matches as you want. It's a great way to build a local community.",
+      "q6": "Is there insurance in case of accident?",
+      "a6": "FootballConnect does not provide insurance. We recommend that all players have their own personal insurance."
+    }
+  },
+  "footer": {
+    "description": "Connecting platform for amateur football enthusiasts.",
+    "quickLinks": "Quick Links",
+    "information": "Information",
+    "language": "Language",
+    "newsletter": "Newsletter",
+    "yourEmail": "Your email",
+    "aboutUs": "About Us",
+    "terms": "Terms of Use",
+    "privacy": "Privacy Policy",
+    "contact": "Contact",
+    "allRightsReserved": "All rights reserved."
+  },
+  "profile": {
+    "languageUpdated": "Language updated",
+    "languageUpdateSuccess": "Language has been updated successfully",
+    "languageUpdateFailed": "Failed to update language"
+  }
+}

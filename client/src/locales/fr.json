@@ -1,0 +1,334 @@
+{
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "submit": "Soumettre",
+    "search": "Rechercher",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "more": "Plus",
+    "less": "Moins"
+  },
+  "nav": {
+    "home": "Accueil",
+    "findMatch": "Trouver un match",
+    "createMatch": "Créer un match",
+    "howItWorks": "Comment ça marche",
+    "login": "Connexion",
+    "register": "Inscription",
+    "logout": "Déconnexion",
+    "profile": "Mon profil",
+    "openMenu": "Ouvrir le menu"
+  },
+  "auth": {
+    "login": "Connexion",
+    "register": "Inscription",
+    "username": "Nom d'utilisateur",
+    "usernamePlaceholder": "Entrez votre nom d'utilisateur",
+    "email": "Email",
+    "emailPlaceholder": "Entrez votre email",
+    "password": "Mot de passe",
+    "passwordPlaceholder": "Entrez votre mot de passe",
+    "firstName": "Prénom",
+    "firstNamePlaceholder": "Entrez votre prénom",
+    "lastName": "Nom",
+    "lastNamePlaceholder": "Entrez votre nom",
+    "welcomeMessage": "Bienvenue sur FootballConnect, rejoignez notre communauté !",
+    "loggingIn": "Connexion en cours...",
+    "registering": "Inscription en cours...",
+    "loginSuccess": "Connexion réussie",
+    "welcomeBack": "Bon retour, {{name}} !",
+    "loginFailed": "Échec de la connexion",
+    "registerSuccess": "Inscription réussie",
+    "accountCreated": "Votre compte a été créé avec succès",
+    "registerFailed": "Échec de l'inscription",
+    "logoutSuccess": "Déconnexion réussie",
+    "seeSoonAgain": "À bientôt !",
+    "logoutFailed": "Échec de la déconnexion",
+    "validation": {
+      "username": "Le nom d'utilisateur doit contenir au moins 3 caractères",
+      "email": "Veuillez fournir une adresse email valide",
+      "password": "Le mot de passe doit contenir au moins 6 caractères"
+    },
+    "hero": {
+      "title": "Le moyen le plus simple de jouer au football",
+      "feature1": "Trouvez des matchs disponibles près de chez vous",
+      "feature2": "Rejoignez une communauté de passionnés de football",
+      "feature3": "Organisez vos propres matchs et trouvez des joueurs",
+      "quote": "FootballConnect a été un game-changer pour moi, je peux maintenant jouer au foot plusieurs fois par semaine !"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": {
+        "start": "Votre match de",
+        "highlight": "foot",
+        "end": "à portée de clic"
+      },
+      "subtitle": "Trouvez des joueurs ou rejoignez un match près de chez vous. Que vous cherchiez un terrain libre ou un foot à 5, FootballConnect facilite l'organisation de vos matchs amateurs.",
+      "findMatch": "Trouver un match",
+      "createMatch": "Créer un match"
+    },
+    "features": {
+      "find": {
+        "title": "Trouvez un match",
+        "description": "Recherchez des matchs disponibles dans votre ville ou quartier, filtrez par date, type de terrain et disponibilité."
+      },
+      "organize": {
+        "title": "Organisez facilement",
+        "description": "Créez et gérez vos matchs en quelques clics, invitez des joueurs et suivez les inscriptions en temps réel."
+      },
+      "play": {
+        "title": "Jouez ensemble",
+        "description": "Rejoignez une communauté de passionnés, participez à des matchs et élargissez votre réseau de joueurs."
+      }
+    },
+    "matches": {
+      "title": "Matchs disponibles près de chez vous",
+      "subtitle": "Trouvez et rejoignez des matchs organisés par d'autres joueurs dans votre région",
+      "viewMore": "Voir plus de matchs",
+      "noMatches": "Aucun match disponible pour le moment",
+      "createFirst": "Créer le premier match"
+    },
+    "cta": {
+      "title": "Prêt à rejoindre la communauté ?",
+      "description": "Créez votre compte en quelques clics et commencez à trouver des matchs près de chez vous ou à organiser vos propres événements.",
+      "register": "S'inscrire gratuitement",
+      "learnMore": "En savoir plus"
+    }
+  },
+  "filter": {
+    "location": "Localisation",
+    "locationPlaceholder": "Ville ou code postal",
+    "date": "Date",
+    "selectDate": "Sélectionner une date",
+    "fieldType": "Type de terrain",
+    "allFields": "Tous les terrains",
+    "freeField": "Terrain libre",
+    "paidField": "Terrain payant",
+    "availableSpots": "Places disponibles",
+    "any": "Toutes",
+    "atLeast": "Au moins {{count}}",
+    "search": "Rechercher",
+    "moreFilters": "Plus de filtres",
+    "lessFilters": "Moins de filtres"
+  },
+  "findMatches": {
+    "title": "Trouvez un match près de chez vous",
+    "subtitle": "Utilisez les filtres ci-dessous pour trouver le match qui vous convient",
+    "searching": "Recherche en cours...",
+    "resultsCount": "{{count}} match trouvé",
+    "resultsCount_plural": "{{count}} matchs trouvés",
+    "listView": "Liste",
+    "mapView": "Carte",
+    "noMatches": "Aucun match ne correspond à vos critères",
+    "tryAdjusting": "Essayez d'ajuster vos filtres ou de créer votre propre match",
+    "discoverMatches": "Découvrez les matchs autour de vous",
+    "yourArea": "Votre région"
+  },
+  "match": {
+    "freeField": "Terrain libre",
+    "paidField": "Terrain payant",
+    "free": "Gratuit",
+    "perPlayer": "joueur",
+    "players": "joueurs",
+    "organizedBy": "Organisé par",
+    "join": "Rejoindre",
+    "joining": "En cours...",
+    "details": "Détails",
+    "full": "Complet",
+    "joinThisMatch": "Rejoindre ce match",
+    "joinSuccess": "Match rejoint",
+    "joinSuccessMessage": "Vous avez rejoint le match avec succès",
+    "joinError": "Erreur lors de la tentative de rejoindre le match",
+    "leaveMatch": "Quitter le match",
+    "leaving": "En cours...",
+    "leaveSuccess": "Match quitté",
+    "leaveSuccessMessage": "Vous avez quitté le match avec succès",
+    "leaveError": "Erreur lors de la tentative de quitter le match",
+    "cannotLeave": "Impossible de quitter",
+    "creatorCannotLeave": "Les organisateurs ne peuvent pas quitter leurs propres matchs",
+    "authRequired": "Authentification requise",
+    "loginToJoin": "Veuillez vous connecter pour rejoindre ce match",
+    "loginToChat": "Veuillez vous connecter pour envoyer des messages",
+    "participationRequired": "Participation requise",
+    "joinToChat": "Vous devez rejoindre le match pour participer à la discussion",
+    "aboutThisMatch": "À propos de ce match",
+    "noAdditionalInfo": "Aucune information supplémentaire fournie par l'organisateur.",
+    "complex": "Complexe sportif",
+    "visitWebsite": "Visiter le site web",
+    "practicalInfo": "Informations pratiques",
+    "bringSneakers": "N'oubliez pas vos chaussures de foot",
+    "noInfoProvided": "Aucune information pratique fournie",
+    "participants": "Participants",
+    "chat": "Discussion",
+    "discussion": "Discussion",
+    "organizer": "Organisateur",
+    "confirmed": "Confirmé",
+    "yourMessage": "Votre message...",
+    "messageSendError": "Erreur d'envoi du message",
+    "noMessages": "Pas encore de messages",
+    "availableSpot": "Place disponible",
+    "notFound": "Match non trouvé",
+    "notFoundDesc": "Le match que vous recherchez n'existe pas ou a été supprimé",
+    "browseMatches": "Parcourir les matchs disponibles",
+    "municipalField": "Terrain municipal"
+  },
+  "map": {
+    "location": "Localisation",
+    "openInGoogleMaps": "Ouvrir dans Google Maps"
+  },
+  "createMatch": {
+    "title": "Créez votre match",
+    "subtitle": "Organisez facilement votre propre match et trouvez des joueurs pour compléter votre équipe",
+    "creating": "Création en cours...",
+    "submit": "Créer le match",
+    "success": "Match créé",
+    "matchCreated": "Votre match a été créé avec succès",
+    "error": "Erreur lors de la création du match",
+    "validation": {
+      "titleRequired": "Le titre du match est requis",
+      "fieldTypeRequired": "Veuillez sélectionner un type de terrain",
+      "dateRequired": "La date du match est requise",
+      "timeRequired": "L'heure du match est requise",
+      "durationMin": "La durée minimum est de 30 minutes",
+      "durationMax": "La durée maximum est de 4 heures",
+      "playersMin": "Au moins 1 joueur est requis",
+      "playersMax": "Le maximum est de 22 joueurs",
+      "totalPlayersMin": "Au moins 2 joueurs sont requis au total",
+      "totalPlayersMax": "Le maximum est de 22 joueurs au total",
+      "locationRequired": "La localisation du match est requise",
+      "paidFieldRequirements": "Pour un terrain payant, le nom du complexe et le prix par joueur sont requis"
+    },
+    "form": {
+      "title": "Titre du match",
+      "titlePlaceholder": "Ex: Match amical à Paris 12ème",
+      "fieldType": "Type de terrain",
+      "freeField": "Terrain libre",
+      "paidField": "Terrain payant",
+      "dateAndTime": "Date et heure",
+      "selectDate": "Choisir une date",
+      "duration": "Durée (en minutes)",
+      "playersNeeded": "Nombre de joueurs recherchés",
+      "totalPlayers": "Nombre total de joueurs",
+      "location": "Lieu du match",
+      "locationPlaceholder": "Adresse ou nom du complexe",
+      "selectLocation": "Sélectionnez une localisation sur la carte",
+      "paidFieldInfo": "Informations pour terrain payant",
+      "complexName": "Nom du complexe",
+      "complexNamePlaceholder": "Ex: UrbanSoccer, Five ...",
+      "pricePerPlayer": "Prix par joueur (€)",
+      "complexUrl": "Lien vers le complexe (optionnel)",
+      "additionalInfo": "Informations complémentaires",
+      "additionalInfoPlaceholder": "Niveau de jeu, équipement à apporter, etc.",
+      "privateMatch": "Rendre ce match privé (accessible uniquement via lien d'invitation)"
+    }
+  },
+  "howItWorks": {
+    "title": "Comment ça marche",
+    "subtitle": "Rejoindre ou organiser un match n'a jamais été aussi simple",
+    "step1": {
+      "title": "Créez votre compte",
+      "description": "Inscrivez-vous en quelques secondes avec votre e-mail ou via les réseaux sociaux."
+    },
+    "step2": {
+      "title": "Trouvez ou créez un match",
+      "description": "Recherchez des matchs disponibles près de chez vous ou créez le vôtre facilement."
+    },
+    "step3": {
+      "title": "Jouez et rencontrez",
+      "description": "Rejoignez d'autres passionnés sur le terrain et élargissez votre réseau de joueurs."
+    },
+    "findMatches": {
+      "title": "Trouver des matchs",
+      "subtitle": "Comment trouver et rejoindre des matchs existants",
+      "cta": "Trouver un match maintenant",
+      "step1": {
+        "title": "Recherchez",
+        "description": "Utilisez les filtres pour trouver des matchs par localisation, date ou type de terrain."
+      },
+      "step2": {
+        "title": "Choisissez",
+        "description": "Consultez les détails des matchs disponibles et trouvez celui qui vous convient."
+      },
+      "step3": {
+        "title": "Rejoignez",
+        "description": "Cliquez sur 'Rejoindre' et confirmez votre participation au match."
+      },
+      "step4": {
+        "title": "Discutez",
+        "description": "Communiquez avec les autres participants via le chat du match."
+      }
+    },
+    "createMatch": {
+      "title": "Créer un match",
+      "subtitle": "Comment organiser votre propre match de football",
+      "cta": "Créer un match",
+      "step1": {
+        "title": "Remplissez le formulaire",
+        "description": "Indiquez le titre, la date, l'heure, la localisation et les détails de votre match."
+      },
+      "step2": {
+        "title": "Précisez les détails",
+        "description": "Indiquez le type de terrain (libre ou payant), le nombre de joueurs et d'autres informations importantes."
+      },
+      "step3": {
+        "title": "Gérez les participants",
+        "description": "Suivez les inscriptions, communiquez avec les participants et organisez votre match."
+      },
+      "tips": {
+        "title": "Conseils pour réussir votre match",
+        "tip1": "Choisissez un horaire populaire (soirs de semaine ou week-end)",
+        "tip2": "Donnez des détails précis sur le lieu et comment y accéder",
+        "tip3": "Soyez clair sur le niveau attendu et l'ambiance du match",
+        "tip4": "Prévoyez quelques équipements (chasubles, ballons) si possible"
+      }
+    },
+    "cta": {
+      "title": "Prêt à jouer ?",
+      "description": "Rejoignez notre communauté et commencez à profiter de matchs de football près de chez vous.",
+      "register": "S'inscrire maintenant",
+      "browse": "Parcourir les matchs"
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "subtitle": "Tout ce que vous devez savoir sur FootballConnect",
+      "q1": "Comment puis-je annuler ma participation à un match ?",
+      "a1": "Rendez-vous sur la page du match et cliquez sur le bouton 'Quitter le match'. Notez que les organisateurs ne peuvent pas quitter leurs propres matchs.",
+      "q2": "Les terrains sont-ils réservés par FootballConnect ?",
+      "a2": "Non, FootballConnect est une plateforme de mise en relation. Pour les terrains payants, l'organisateur est responsable de la réservation.",
+      "q3": "Puis-je participer sans créer de compte ?",
+      "a3": "Non, vous devez créer un compte pour rejoindre ou créer des matchs. Cela permet de garantir la sécurité et la fiabilité du système.",
+      "q4": "Comment fonctionne le paiement pour les terrains payants ?",
+      "a4": "Le paiement s'effectue directement entre les participants et l'organisateur. FootballConnect n'intervient pas dans les transactions financières.",
+      "q5": "Puis-je organiser des matchs réguliers ?",
+      "a5": "Oui, vous pouvez créer autant de matchs que vous le souhaitez. C'est une excellente façon de construire une communauté locale.",
+      "q6": "Y a-t-il une assurance en cas d'accident ?",
+      "a6": "FootballConnect ne fournit pas d'assurance. Nous recommandons à tous les joueurs d'avoir leur propre assurance personnelle."
+    }
+  },
+  "footer": {
+    "description": "Plateforme de mise en relation pour les passionnés de football amateur.",
+    "quickLinks": "Liens rapides",
+    "information": "Informations",
+    "language": "Langue",
+    "newsletter": "Newsletter",
+    "yourEmail": "Votre e-mail",
+    "aboutUs": "À propos de nous",
+    "terms": "Conditions d'utilisation",
+    "privacy": "Politique de confidentialité",
+    "contact": "Contact",
+    "allRightsReserved": "Tous droits réservés."
+  },
+  "profile": {
+    "languageUpdated": "Langue mise à jour",
+    "languageUpdateSuccess": "La langue a été mise à jour avec succès",
+    "languageUpdateFailed": "Échec de la mise à jour de la langue"
+  }
+}
