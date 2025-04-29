@@ -120,9 +120,17 @@ export function setupAuth(app: Express) {
       req.login(user, (err: Error | null) => {
         if (err) return next(err);
         
-        // Remove password from response
-        const { password, ...userWithoutPassword } = user;
-        res.status(200).json(userWithoutPassword);
+        // Ensure the session is saved before sending the response
+        req.session.save((err) => {
+          if (err) return next(err);
+          
+          // Add a debug log to check session ID
+          console.log("Session ID after login:", req.sessionID);
+          
+          // Remove password from response
+          const { password, ...userWithoutPassword } = user;
+          res.status(200).json(userWithoutPassword);
+        });
       });
     })(req, res, next);
   });
@@ -135,7 +143,14 @@ export function setupAuth(app: Express) {
   });
 
   app.get("/api/user", (req, res) => {
-    if (!req.isAuthenticated()) return res.sendStatus(401);
+    // Log for debugging
+    console.log("Session ID in /api/user:", req.sessionID);
+    console.log("Is authenticated:", req.isAuthenticated());
+    console.log("Session data:", req.session);
+    
+    if (!req.isAuthenticated()) {
+      return res.sendStatus(401);
+    }
     
     // Remove password from response
     const { password, ...userWithoutPassword } = req.user;
