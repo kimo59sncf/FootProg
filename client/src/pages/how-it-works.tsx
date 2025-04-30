@@ -15,25 +15,40 @@ export default function HowItWorks() {
             <h1 className="text-3xl font-bold text-gray-800 mb-4">{t("howItWorks.title")}</h1>
             <p className="text-gray-600 max-w-2xl mx-auto">{t("howItWorks.subtitle")}</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
             <div className="text-center">
+              <img 
+                src="/images/step1.jpg" 
+                alt="Step 1" 
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
               <div className="w-16 h-16 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-primary font-bold text-xl">1</span>
               </div>
               <h3 className="text-xl font-semibold mb-2">{t("howItWorks.step1.title")}</h3>
               <p className="text-gray-600">{t("howItWorks.step1.description")}</p>
             </div>
-            
+
             <div className="text-center">
+              <img 
+                src="/images/step2.jpg" 
+                alt="Step 2" 
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
               <div className="w-16 h-16 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-primary font-bold text-xl">2</span>
               </div>
               <h3 className="text-xl font-semibold mb-2">{t("howItWorks.step2.title")}</h3>
               <p className="text-gray-600">{t("howItWorks.step2.description")}</p>
             </div>
-            
+
             <div className="text-center">
+              <img 
+                src="/images/step3.jpg" 
+                alt="Step 3" 
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
               <div className="w-16 h-16 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-primary font-bold text-xl">3</span>
               </div>
@@ -54,6 +69,11 @@ export default function HowItWorks() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card>
               <CardContent className="pt-6">
+                <img 
+                  src="/images/find-match-step1.jpg" 
+                  alt="Find a match step 1" 
+                  className="w-full h-24 object-cover rounded-lg mb-4"
+                />
                 <div className="flex flex-col items-center text-center">
                   <div className="w-12 h-12 bg-primary-light bg-opacity-20 rounded-full flex items-center justify-center mb-4">
                     <Search className="text-primary h-5 w-5" />
@@ -66,6 +86,11 @@ export default function HowItWorks() {
 
             <Card>
               <CardContent className="pt-6">
+                <img 
+                  src="/images/find-match-step2.jpg" 
+                  alt="Find a match step 2" 
+                  className="w-full h-24 object-cover rounded-lg mb-4"
+                />
                 <div className="flex flex-col items-center text-center">
                   <div className="w-12 h-12 bg-primary-light bg-opacity-20 rounded-full flex items-center justify-center mb-4">
                     <Volleyball className="text-primary h-5 w-5" />
@@ -78,6 +103,11 @@ export default function HowItWorks() {
 
             <Card>
               <CardContent className="pt-6">
+                <img 
+                  src="/images/find-match-step3.jpg" 
+                  alt="Find a match step 3" 
+                  className="w-full h-24 object-cover rounded-lg mb-4"
+                />
                 <div className="flex flex-col items-center text-center">
                   <div className="w-12 h-12 bg-primary-light bg-opacity-20 rounded-full flex items-center justify-center mb-4">
                     <UserPlus className="text-primary h-5 w-5" />
@@ -90,6 +120,11 @@ export default function HowItWorks() {
 
             <Card>
               <CardContent className="pt-6">
+                <img 
+                  src="/images/find-match-step4.jpg" 
+                  alt="Find a match step 4" 
+                  className="w-full h-24 object-cover rounded-lg mb-4"
+                />
                 <div className="flex flex-col items-center text-center">
                   <div className="w-12 h-12 bg-primary-light bg-opacity-20 rounded-full flex items-center justify-center mb-4">
                     <svg className="text-primary h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -124,39 +159,45 @@ export default function HowItWorks() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <div className="flex mb-6">
-                <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white font-bold mr-4">
-                  1
-                </div>
+                <img 
+                  src="/images/create-match-step1.jpg" 
+                  alt="Create match step 1" 
+                  className="w-24 h-24 object-cover rounded-lg mr-4"
+                />
                 <div>
                   <h3 className="font-semibold text-lg mb-2">{t("howItWorks.createMatch.step1.title")}</h3>
                   <p className="text-gray-600">{t("howItWorks.createMatch.step1.description")}</p>
                 </div>
               </div>
-              
+
               <div className="flex mb-6">
-                <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white font-bold mr-4">
-                  2
-                </div>
+                <img 
+                  src="/images/create-match-step2.jpg" 
+                  alt="Create match step 2" 
+                  className="w-24 h-24 object-cover rounded-lg mr-4"
+                />
                 <div>
                   <h3 className="font-semibold text-lg mb-2">{t("howItWorks.createMatch.step2.title")}</h3>
                   <p className="text-gray-600">{t("howItWorks.createMatch.step2.description")}</p>
                 </div>
               </div>
-              
+
               <div className="flex">
-                <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white font-bold mr-4">
-                  3
-                </div>
+                <img 
+                  src="/images/create-match-step3.jpg" 
+                  alt="Create match step 3" 
+                  className="w-24 h-24 object-cover rounded-lg mr-4"
+                />
                 <div>
                   <h3 className="font-semibold text-lg mb-2">{t("howItWorks.createMatch.step3.title")}</h3>
                   <p className="text-gray-600">{t("howItWorks.createMatch.step3.description")}</p>
                 </div>
               </div>
             </div>
-            
+
             <div className="bg-gray-100 p-6 rounded-lg">
               <h3 className="font-semibold text-lg mb-4">{t("howItWorks.createMatch.tips.title")}</h3>
-              
+
               <ul className="space-y-4">
                 <li className="flex">
                   <svg className="h-6 w-6 text-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -183,7 +224,7 @@ export default function HowItWorks() {
                   <span>{t("howItWorks.createMatch.tips.tip4")}</span>
                 </li>
               </ul>
-              
+
               <div className="mt-6">
                 <Link href="/create-match">
                   <Button className="w-full">
@@ -217,12 +258,11 @@ export default function HowItWorks() {
               </div>
             </div>
             <div className="md:w-1/2">
-              <div className="w-full h-64 bg-gray-200 rounded-lg overflow-hidden relative">
-                {/* We would use an actual image in production */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Volleyball className="h-16 w-16 text-gray-400" />
-                </div>
-              </div>
+              <img 
+                src="/images/cta-image.jpg" 
+                alt="Call to action image" 
+                className="w-full h-64 object-cover rounded-lg"
+              />
             </div>
           </div>
         </div>
@@ -234,33 +274,33 @@ export default function HowItWorks() {
             <h2 className="text-2xl font-bold text-gray-800 mb-2">{t("howItWorks.faq.title")}</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">{t("howItWorks.faq.subtitle")}</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div>
               <h3 className="font-semibold text-lg mb-2">{t("howItWorks.faq.q1")}</h3>
               <p className="text-gray-600">{t("howItWorks.faq.a1")}</p>
             </div>
-            
+
             <div>
               <h3 className="font-semibold text-lg mb-2">{t("howItWorks.faq.q2")}</h3>
               <p className="text-gray-600">{t("howItWorks.faq.a2")}</p>
             </div>
-            
+
             <div>
               <h3 className="font-semibold text-lg mb-2">{t("howItWorks.faq.q3")}</h3>
               <p className="text-gray-600">{t("howItWorks.faq.a3")}</p>
             </div>
-            
+
             <div>
               <h3 className="font-semibold text-lg mb-2">{t("howItWorks.faq.q4")}</h3>
               <p className="text-gray-600">{t("howItWorks.faq.a4")}</p>
             </div>
-            
+
             <div>
               <h3 className="font-semibold text-lg mb-2">{t("howItWorks.faq.q5")}</h3>
               <p className="text-gray-600">{t("howItWorks.faq.a5")}</p>
             </div>
-            
+
             <div>
               <h3 className="font-semibold text-lg mb-2">{t("howItWorks.faq.q6")}</h3>
               <p className="text-gray-600">{t("howItWorks.faq.a6")}</p>

@@ -16,6 +16,13 @@ export default function HomePage() {
 
   return (
     <div className="bg-white">
+  <div className="relative">
+    <img 
+      src="/images/hero.jpg" 
+      alt="Football field" 
+      className="w-full h-[500px] object-cover"
+    />
+    <div className="absolute inset-0 bg-black bg-opacity-50" />
       {/* Hero Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
