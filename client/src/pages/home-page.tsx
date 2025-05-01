@@ -18,7 +18,7 @@ export default function HomePage() {
     <div className="bg-white">
   <div className="relative">
     <img 
-      src="/images/hero.jpg" 
+      src="/client/public/images/hero.jpg" 
       alt="Football field" 
       className="w-full h-[500px] object-cover"
     />

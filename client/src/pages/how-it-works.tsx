@@ -160,7 +160,7 @@ export default function HowItWorks() {
             <div>
               <div className="flex mb-6">
                 <img 
-                  src="/images/create-match-step1.jpg" 
+                  src="/client/public/images/create-match.jpg" 
                   alt="Create match step 1" 
                   className="w-24 h-24 object-cover rounded-lg mr-4"
                 />
