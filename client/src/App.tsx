@@ -10,6 +10,7 @@ import FindMatches from "@/pages/find-matches";
 import CreateMatch from "@/pages/create-match";
 import MatchDetail from "@/pages/match-detail";
 import HowItWorks from "@/pages/how-it-works";
+import ChatPage from "@/pages/chat-page";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/lib/protected-route";
 import Header from "@/components/layout/header";
