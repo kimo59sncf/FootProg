@@ -24,6 +24,7 @@ function Router() {
       <Route path="/find-matches" component={FindMatches} />
       <ProtectedRoute path="/create-match" component={CreateMatch} />
       <Route path="/match/:id" component={MatchDetail} />
+      <Route path="/match/:id/chat" component={ChatPage} />
       <Route path="/how-it-works" component={HowItWorks} />
       <Route component={NotFound} />
     </Switch>
