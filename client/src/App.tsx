@@ -38,9 +38,9 @@ function App() {
       <ThemeProvider attribute="class" defaultTheme="light">
         <AuthProvider>
           <TooltipProvider>
-            <div className="min-h-screen flex flex-col">
+            <div className="min-h-screen flex flex-col bg-white">
               <Header />
-              <main className="flex-grow">
+              <main className="flex-grow bg-white">
                 <Router />
               </main>
               <Footer />
