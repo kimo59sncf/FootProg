@@ -10,7 +10,6 @@ import FindMatches from "@/pages/find-matches";
 import CreateMatch from "@/pages/create-match";
 import MatchDetail from "@/pages/match-detail";
 import HowItWorks from "@/pages/how-it-works";
-import ChatPage from "@/pages/chat-page";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/lib/protected-route";
 import Header from "@/components/layout/header";
@@ -25,7 +24,6 @@ function Router() {
       <Route path="/find-matches" component={FindMatches} />
       <ProtectedRoute path="/create-match" component={CreateMatch} />
       <Route path="/match/:id" component={MatchDetail} />
-      <Route path="/match/:id/chat" component={ChatPage} />
       <Route path="/how-it-works" component={HowItWorks} />
       <Route component={NotFound} />
     </Switch>
@@ -38,9 +36,9 @@ function App() {
       <ThemeProvider attribute="class" defaultTheme="light">
         <AuthProvider>
           <TooltipProvider>
-            <div className="min-h-screen flex flex-col bg-white">
+            <div className="min-h-screen flex flex-col">
               <Header />
-              <main className="flex-grow bg-white">
+              <main className="flex-grow">
                 <Router />
               </main>
               <Footer />

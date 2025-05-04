@@ -110,7 +110,7 @@ export default function MatchDetail() {
       setLocation("/auth");
       return;
     }
-
+    
     joinMutation.mutate();
   };
 
@@ -123,7 +123,7 @@ export default function MatchDetail() {
       });
       return;
     }
-
+    
     leaveMutation.mutate();
   };
 
@@ -138,7 +138,7 @@ export default function MatchDetail() {
       });
       return;
     }
-
+    
     if (!isParticipant) {
       toast({
         variant: "destructive",
@@ -147,7 +147,7 @@ export default function MatchDetail() {
       });
       return;
     }
-
+    
     sendMessageMutation.mutate(message.trim());
   };
 
@@ -226,20 +226,20 @@ export default function MatchDetail() {
                 </svg>
               </div>
             </div>
-
+            
             <div className="absolute top-4 left-4">
               <Badge variant={match.fieldType === "free" ? "default" : "secondary"} className={match.fieldType === "free" ? "bg-primary" : "bg-accent"}>
                 {match.fieldType === "free" ? t("match.freeField") : t("match.paidField")}
               </Badge>
             </div>
           </div>
-
+          
           <div className="p-6">
             <div className="flex flex-col md:flex-row md:items-start md:justify-between">
               <div>
                 <h1 className="text-2xl font-bold text-gray-800">{match.title}</h1>
                 <p className="text-gray-600 mt-1">{match.location}</p>
-
+                
                 <div className="flex flex-wrap items-center mt-4 gap-y-2">
                   <div className="flex items-center mr-6">
                     <Calendar className="text-gray-500 mr-2 h-5 w-5" />
@@ -251,7 +251,7 @@ export default function MatchDetail() {
                   </div>
                 </div>
               </div>
-
+              
               <div className="mt-6 md:mt-0">
                 <div className={`border rounded-md px-4 py-3 text-center ${match.fieldType === "free" ? "bg-green-50 border-green-200" : "bg-amber-50 border-amber-200"}`}>
                   <span className="block text-xl font-bold">
@@ -265,7 +265,7 @@ export default function MatchDetail() {
                     {match.fieldType === "free" ? t("match.municipalField") : match.complexName}
                   </span>
                 </div>
-
+                
                 {isParticipant ? (
                   <Button 
                     variant="outline" 
@@ -292,14 +292,14 @@ export default function MatchDetail() {
                 )}
               </div>
             </div>
-
+            
             <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="col-span-2">
                 <Card>
                   <CardContent className="p-5">
                     <h3 className="font-medium text-lg text-gray-800 mb-3">{t("match.aboutThisMatch")}</h3>
                     <p className="text-gray-600">{match.additionalInfo || t("match.noAdditionalInfo")}</p>
-
+                    
                     {match.fieldType === "paid" && match.complexUrl && (
                       <div className="mt-6">
                         <h4 className="font-medium text-gray-800 mb-2">{t("match.complex")}</h4>
@@ -315,7 +315,7 @@ export default function MatchDetail() {
                         </a>
                       </div>
                     )}
-
+                    
                     <div className="mt-6">
                       <h4 className="font-medium text-gray-800 mb-2">{t("match.practicalInfo")}</h4>
                       {match.additionalInfo ? (
@@ -330,7 +330,7 @@ export default function MatchDetail() {
                         <p className="text-gray-500 italic">{t("match.noInfoProvided")}</p>
                       )}
                     </div>
-
+                    
                     <div className="mt-6">
                       <h4 className="font-medium text-gray-800 mb-3">{t("map.location")}</h4>
                       <MapView 
@@ -341,7 +341,7 @@ export default function MatchDetail() {
                   </CardContent>
                 </Card>
               </div>
-
+              
               <div>
                 <Tabs defaultValue="participants">
                   <TabsList className="w-full grid grid-cols-2">
@@ -352,7 +352,7 @@ export default function MatchDetail() {
                       {t("match.chat")}
                     </TabsTrigger>
                   </TabsList>
-
+                  
                   <TabsContent value="participants">
                     <Card>
                       <CardHeader className="pb-3">
@@ -403,7 +403,7 @@ export default function MatchDetail() {
                       </CardContent>
                     </Card>
                   </TabsContent>
-
+                  
                   <TabsContent value="chat">
                     <Card>
                       <CardHeader className="pb-3">
@@ -444,9 +444,9 @@ export default function MatchDetail() {
                             <div ref={messagesEndRef} />
                           </div>
                         </div>
-
+                        
                         <Separator className="my-3" />
-
+                        
                         <form 
                           onSubmit={handleSendMessage}
                           className="flex p-3 pt-0"
@@ -458,19 +458,13 @@ export default function MatchDetail() {
                             className="flex-grow rounded-r-none"
                             disabled={!user || !isParticipant || sendMessageMutation.isPending}
                           />
-                          <div className="flex gap-2">
-                            <Button 
-                              type="submit"
-                              disabled={!message.trim() || !user || !isParticipant || sendMessageMutation.isPending}
-                            >
-                              <Send className="h-4 w-4" />
-                            </Button>
-                            <Link href={`/match/${id}/chat`}>
-                              <Button variant="outline">
-                                Chat en plein écran
-                              </Button>
-                            </Link>
-                          </div>
+                          <Button 
+                            type="submit"
+                            className="rounded-l-none"
+                            disabled={!message.trim() || !user || !isParticipant || sendMessageMutation.isPending}
+                          >
+                            <Send className="h-4 w-4" />
+                          </Button>
                         </form>
                       </CardContent>
                     </Card>
