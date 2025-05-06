@@ -1,27 +1,38 @@
 
-# Base image
+# Image de base Node.js
 FROM node:20-slim
 
-# Set working directory
+# Définition du répertoire de travail
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
+# Variables d'environnement
+ENV NODE_ENV=production
+ENV PORT=5000
 
-# Install dependencies
+# Installation des dépendances de construction
+COPY package*.json ./
 RUN npm ci
 
-# Copy project files
+# Copie des fichiers du projet
 COPY . .
 
-# Build frontend
+# Construction du frontend
 RUN npm run build
 
-# Set environment to production
-ENV NODE_ENV=production
-
-# Expose application port
+# Exposition du port
 EXPOSE 5000
 
-# Start command
+# Commande de démarrage
 CMD ["npm", "run", "start"]
+
+# Configuration de santé
+HEALTHCHECK --interval=30s --timeout=3s \
+  CMD curl -f http://localhost:5000/api/health || exit 1
+
+# Optimisations
+RUN npm cache clean --force
+
+# Métadonnées
+LABEL maintainer="FootballConnect Team" \
+      version="1.0" \
+      description="Application de gestion de matchs de football"

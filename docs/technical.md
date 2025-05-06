@@ -1,54 +1,116 @@
 
-# Technical Documentation
+# Documentation Technique
 
-## Application Architecture
+## Architecture du Projet
 
-### Frontend
-- React application with TypeScript
-- UI components using Radix UI and Tailwind CSS
-- State management with React Query and custom hooks
-- i18n support for English and French
-- Protected routes and authentication
-- Real-time chat functionality
+### Structure Frontend (client/)
+- Framework: React avec TypeScript
+- État: React Query pour la gestion des données
+- UI: Composants personnalisés avec Radix UI et Tailwind CSS
+- Internationalisation: i18next (Français/Anglais)
+- Routing: Wouter pour la navigation
 
-### Backend
-- Express.js server with TypeScript
-- PostgreSQL database with Drizzle ORM
-- Session-based authentication
-- RESTful API endpoints
-- WebSocket support for real-time features
+#### Organisation des dossiers frontend:
+```
+client/src/
+├── components/         # Composants réutilisables
+│   ├── layout/        # Composants de mise en page
+│   └── ui/            # Composants d'interface utilisateur
+├── hooks/             # Hooks React personnalisés
+├── lib/              # Utilitaires et configurations
+├── locales/          # Fichiers de traduction
+└── pages/            # Composants de pages
+```
 
-### Database Schema
-- Users: Authentication and profile data
-- Matches: Sports match organization
-- Participants: Match participation tracking
-- Messages: Real-time chat system
+### Structure Backend (server/)
+- Runtime: Node.js avec Express
+- Base de données: PostgreSQL avec Drizzle ORM
+- Authentication: Passport.js avec sessions
+- WebSocket: Pour le chat en temps réel
+
+#### Organisation des dossiers backend:
+```
+server/
+├── auth.ts           # Configuration de l'authentification
+├── db.ts            # Configuration de la base de données
+├── routes.ts        # Routes API
+├── storage.ts       # Gestion du stockage
+└── index.ts         # Point d'entrée du serveur
+```
+
+### Schéma de Base de Données
+
+#### Users
+- id: number (Primary Key)
+- username: string
+- email: string
+- password: string (hashed)
+- createdAt: Date
+
+#### Matches
+- id: number (Primary Key)
+- title: string
+- fieldType: string
+- location: string
+- date: Date
+- duration: number
+- maxPlayers: number
+- creatorId: number (Foreign Key -> Users)
+
+#### Participants
+- id: number (Primary Key)
+- matchId: number (Foreign Key -> Matches)
+- userId: number (Foreign Key -> Users)
+- status: string
 
 ## API Endpoints
 
 ### Authentication
-- POST /api/auth/register - User registration
-- POST /api/auth/login - User login
-- GET /api/auth/logout - User logout
-- GET /api/user - Get current user
+- POST /api/auth/register - Inscription
+- POST /api/auth/login - Connexion
+- GET /api/auth/logout - Déconnexion
 
 ### Matches
-- GET /api/matches - List matches
-- POST /api/matches - Create match
-- GET /api/matches/:id - Get match details
-- PUT /api/matches/:id - Update match
-- DELETE /api/matches/:id - Delete match
+- GET /api/matches - Liste des matchs
+- POST /api/matches - Création d'un match
+- GET /api/matches/:id - Détails d'un match
+- PUT /api/matches/:id - Modification d'un match
+- DELETE /api/matches/:id - Suppression d'un match
 
 ### Participants
-- POST /api/matches/:id/join - Join match
-- DELETE /api/matches/:id/leave - Leave match
+- POST /api/matches/:id/join - Rejoindre un match
+- DELETE /api/matches/:id/leave - Quitter un match
 
-### Messages
-- GET /api/matches/:id/messages - Get match messages
-- POST /api/matches/:id/messages - Send message
+## Configuration Technique
 
-## Deployment
-- Production build with Vite
-- Static assets optimization
-- Environment-based configuration
-- Session management with PostgreSQL store
+### Environnement de Développement
+- Node.js 20.x
+- PostgreSQL 16
+- Vite pour le bundling
+- TypeScript pour le typage statique
+
+### Dépendances Principales
+- React 18.x
+- Express 4.x
+- Drizzle ORM
+- TailwindCSS
+- i18next
+- React Query
+
+### Performance
+- Optimisation des images
+- Lazy loading des composants
+- Mise en cache avec React Query
+- Compression Gzip
+
+### Sécurité
+- CSRF Protection
+- Sessions sécurisées
+- Validation des données avec Zod
+- Sanitization des entrées
+
+## Déploiement
+- Hébergement: Replit
+- Base de données: PostgreSQL sur Replit
+- Environnement de production configuré via .replit
+- Ports: 5000 (dev) / 80,443 (prod)
