@@ -44,8 +44,8 @@ export default function HomePage() {
             <div className="md:w-1/2 mt-10 md:mt-0">
               <div className="w-full h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=1000" 
-                  alt="Football field"
+                  src="https://images.unsplash.com/photo-1552667466-07770ae110d0?q=80&w=1000" 
+                  alt="Football indoor"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -56,7 +56,7 @@ export default function HomePage() {
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
               <div className="w-20 h-20 rounded-full overflow-hidden mb-4">
                 <img 
-                  src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?q=80&w=1000" 
+                  src="https://images.unsplash.com/photo-1487466365202-1afdb86c764e?q=80&w=1000" 
                   alt="Search matches"
                   className="w-full h-full object-cover"
                 />

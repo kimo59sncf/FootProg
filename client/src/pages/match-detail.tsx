@@ -220,11 +220,13 @@ export default function MatchDetail() {
           <div className="relative">
             <div className="w-full h-64 md:h-80 bg-gray-200 relative">
               {/* We would use an actual image in production */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <svg className="w-24 h-24 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M12 4v16m8-8H4"></path>
-                </svg>
-              </div>
+              <img 
+                src={match.fieldType === "free" 
+                  ? "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1000" 
+                  : "https://images.unsplash.com/photo-1552667466-07770ae110d0?q=80&w=1000"}
+                alt={match.fieldType === "free" ? "Terrain extérieur" : "Terrain en salle"}
+                className="w-full h-full object-cover"
+              />
             </div>
             
             <div className="absolute top-4 left-4">
