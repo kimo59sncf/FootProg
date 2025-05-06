@@ -42,19 +42,24 @@ export default function HomePage() {
               </div>
             </div>
             <div className="md:w-1/2 mt-10 md:mt-0">
-              <div className="w-full h-64 sm:h-80 md:h-96 bg-gray-200 rounded-lg overflow-hidden relative">
-                {/* We would use an actual image in production */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Volleyball className="h-24 w-24 text-gray-400" />
-                </div>
+              <div className="w-full h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=1000" 
+                  alt="Football field"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
           
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-              <div className="w-12 h-12 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-4">
-                <Search className="text-primary h-6 w-6" />
+              <div className="w-20 h-20 rounded-full overflow-hidden mb-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?q=80&w=1000" 
+                  alt="Search matches"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-xl font-semibold mb-2">{t("home.features.find.title")}</h3>
               <p className="text-gray-600">{t("home.features.find.description")}</p>
