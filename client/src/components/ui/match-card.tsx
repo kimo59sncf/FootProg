@@ -49,13 +49,14 @@ export function MatchCard({ match, participants = [], onJoin, joinLoading }: Mat
           </Badge>
         </div>
         
-        <div className="h-48 bg-gray-200 relative">
-          {/* If we had actual images, we would use them here */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <svg className="w-24 h-24 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M12 4v16m8-8H4"></path>
-            </svg>
-          </div>
+        <div className="h-48 relative overflow-hidden">
+          <img
+            src={match.fieldType === "free" 
+              ? "https://images.unsplash.com/photo-1459865264687-595d652de67e?q=80&w=1000" 
+              : "https://images.unsplash.com/photo-1577705998148-6da4f3963bc8?q=80&w=1000"}
+            alt={match.fieldType === "free" ? "Terrain extérieur" : "Terrain en salle"}
+            className="w-full h-full object-cover"
+          />
         </div>
         
         <div className="absolute bottom-4 right-4 bg-white bg-opacity-90 text-gray-800 text-sm font-semibold px-3 py-1 rounded-full">
