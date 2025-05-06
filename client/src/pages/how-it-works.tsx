@@ -55,8 +55,12 @@ export default function HowItWorks() {
             <Card>
               <CardContent className="pt-6">
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-12 h-12 bg-primary-light bg-opacity-20 rounded-full flex items-center justify-center mb-4">
-                    <Search className="text-primary h-5 w-5" />
+                  <div className="w-12 h-12 overflow-hidden rounded-full mb-4">
+                    <img
+                      src="https://images.unsplash.com/photo-1459865264687-595d652de67e?q=80&w=1000"
+                      alt="Trouve un match"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h3 className="font-semibold mb-2">{t("howItWorks.findMatches.step1.title")}</h3>
                   <p className="text-gray-600 text-sm">{t("howItWorks.findMatches.step1.description")}</p>

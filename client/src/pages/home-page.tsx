@@ -80,7 +80,7 @@ export default function HomePage() {
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
               <div className="w-20 h-20 rounded-full overflow-hidden mb-4">
                 <img
-                  src="images/gettyimages-1399402236-612x612.jpg"
+                  src="https://images.unsplash.com/photo-1577705998148-6da4f3963bc8"
                   alt="Organize matches"
                   className="w-full h-full object-cover"
                 />

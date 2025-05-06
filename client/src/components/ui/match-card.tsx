@@ -52,8 +52,8 @@ export function MatchCard({ match, participants = [], onJoin, joinLoading }: Mat
         <div className="h-48 relative overflow-hidden">
           <img
             src={match.fieldType === "free" 
-              ? "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1000" 
-              : "https://images.unsplash.com/photo-1552667466-07770ae110d0?q=80&w=1000"}
+              ? "https://images.unsplash.com/photo-1459865264687-595d652de67e?q=80&w=1000" 
+              : "https://images.unsplash.com/photo-1577705998148-6da4f3963bc8?q=80&w=1000"}
             alt={match.fieldType === "free" ? "Terrain extérieur" : "Terrain en salle"}
             className="w-full h-full object-cover"
           />
