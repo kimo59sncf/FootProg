@@ -66,16 +66,24 @@ export default function HomePage() {
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-              <div className="w-12 h-12 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-4">
-                <Volleyball className="text-primary h-6 w-6" />
+              <div className="w-20 h-20 rounded-full overflow-hidden mb-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1577705998148-6da4f3963bc8?q=80&w=1000" 
+                  alt="Organize matches"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-xl font-semibold mb-2">{t("home.features.organize.title")}</h3>
               <p className="text-gray-600">{t("home.features.organize.description")}</p>
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-              <div className="w-12 h-12 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-4">
-                <UserPlus className="text-primary h-6 w-6" />
+              <div className="w-20 h-20 rounded-full overflow-hidden mb-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1518604666860-9ed391f76460?q=80&w=1000" 
+                  alt="Play together"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-xl font-semibold mb-2">{t("home.features.play.title")}</h3>
               <p className="text-gray-600">{t("home.features.play.description")}</p>
@@ -160,11 +168,12 @@ export default function HomePage() {
               </div>
             </div>
             <div className="md:w-1/2">
-              <div className="w-full h-48 sm:h-64 bg-gray-200 rounded-lg overflow-hidden relative">
-                {/* We would use an actual image in production */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Volleyball className="h-16 w-16 text-gray-400" />
-                </div>
+              <div className="w-full h-48 sm:h-64 rounded-lg overflow-hidden relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1000" 
+                  alt="Join football community"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
