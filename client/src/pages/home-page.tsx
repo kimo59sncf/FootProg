@@ -9,7 +9,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function HomePage() {
   const { t } = useTranslation();
-  
+
   const { data: matches, isLoading } = useQuery<(Match & { creator: User })[]>({
     queryKey: ["/api/matches"],
   });
@@ -22,7 +22,11 @@ export default function HomePage() {
           <div className="flex flex-col md:flex-row md:items-center">
             <div className="md:w-1/2 md:pr-12">
               <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 leading-tight">
-                {t("home.hero.title.start")} <span className="text-primary">{t("home.hero.title.highlight")}</span> {t("home.hero.title.end")}
+                {t("home.hero.title.start")}{" "}
+                <span className="text-primary">
+                  {t("home.hero.title.highlight")}
+                </span>{" "}
+                {t("home.hero.title.end")}
               </h1>
               <p className="mt-4 text-lg text-gray-600">
                 {t("home.hero.subtitle")}
@@ -35,7 +39,11 @@ export default function HomePage() {
                   </Button>
                 </Link>
                 <Link href="/create-match">
-                  <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="w-full sm:w-auto"
+                  >
                     {t("home.hero.createMatch")}
                   </Button>
                 </Link>
@@ -43,50 +51,62 @@ export default function HomePage() {
             </div>
             <div className="md:w-1/2 mt-10 md:mt-0">
               <div className="w-full h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1552667466-07770ae110d0?q=80&w=1000" 
+                <img
+                  src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=1000"
                   alt="Football indoor"
                   className="w-full h-full object-cover"
                 />
               </div>
             </div>
           </div>
-          
+
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
               <div className="w-20 h-20 rounded-full overflow-hidden mb-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1487466365202-1afdb86c764e?q=80&w=1000" 
+                <img
+                  src="https://images.unsplash.com/photo-1487466365202-1afdb86c764e?q=80&w=1000"
                   alt="Search matches"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2">{t("home.features.find.title")}</h3>
-              <p className="text-gray-600">{t("home.features.find.description")}</p>
+              <h3 className="text-xl font-semibold mb-2">
+                {t("home.features.find.title")}
+              </h3>
+              <p className="text-gray-600">
+                {t("home.features.find.description")}
+              </p>
             </div>
-            
+
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
               <div className="w-20 h-20 rounded-full overflow-hidden mb-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1577705998148-6da4f3963bc8?q=80&w=1000" 
+                <img
+                  src="images/gettyimages-1399402236-612x612.jpg"
                   alt="Organize matches"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2">{t("home.features.organize.title")}</h3>
-              <p className="text-gray-600">{t("home.features.organize.description")}</p>
+              <h3 className="text-xl font-semibold mb-2">
+                {t("home.features.organize.title")}
+              </h3>
+              <p className="text-gray-600">
+                {t("home.features.organize.description")}
+              </p>
             </div>
-            
+
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
               <div className="w-20 h-20 rounded-full overflow-hidden mb-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1518604666860-9ed391f76460?q=80&w=1000" 
+                <img
+                  src="https://images.unsplash.com/photo-1518604666860-9ed391f76460?q=80&w=1000"
                   alt="Play together"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2">{t("home.features.play.title")}</h3>
-              <p className="text-gray-600">{t("home.features.play.description")}</p>
+              <h3 className="text-xl font-semibold mb-2">
+                {t("home.features.play.title")}
+              </h3>
+              <p className="text-gray-600">
+                {t("home.features.play.description")}
+              </p>
             </div>
           </div>
         </div>
@@ -96,15 +116,22 @@ export default function HomePage() {
       <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-800">{t("home.matches.title")}</h2>
-            <p className="mt-3 text-gray-600 max-w-2xl mx-auto">{t("home.matches.subtitle")}</p>
+            <h2 className="text-3xl font-bold text-gray-800">
+              {t("home.matches.title")}
+            </h2>
+            <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
+              {t("home.matches.subtitle")}
+            </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {isLoading ? (
               // Skeleton loaders while fetching data
               Array.from({ length: 3 }).map((_, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100">
+                <div
+                  key={index}
+                  className="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100"
+                >
                   <Skeleton className="h-48 w-full" />
                   <div className="p-4">
                     <Skeleton className="h-6 w-3/4 mb-2" />
@@ -124,19 +151,21 @@ export default function HomePage() {
                 </div>
               ))
             ) : matches && matches.length > 0 ? (
-              matches.slice(0, 3).map((match) => (
-                <MatchCard key={match.id} match={match} />
-              ))
+              matches
+                .slice(0, 3)
+                .map((match) => <MatchCard key={match.id} match={match} />)
             ) : (
               <div className="col-span-full text-center py-10">
                 <p className="text-gray-500">{t("home.matches.noMatches")}</p>
                 <Link href="/create-match">
-                  <Button className="mt-4">{t("home.matches.createFirst")}</Button>
+                  <Button className="mt-4">
+                    {t("home.matches.createFirst")}
+                  </Button>
                 </Link>
               </div>
             )}
           </div>
-          
+
           <div className="mt-10 text-center">
             <Link href="/find-matches">
               <Button variant="link" className="text-primary">
@@ -152,7 +181,9 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gray-50 rounded-lg p-8 flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-6 md:mb-0 md:pr-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">{t("home.cta.title")}</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                {t("home.cta.title")}
+              </h3>
               <p className="text-gray-600 mb-6">{t("home.cta.description")}</p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/auth">
@@ -161,7 +192,11 @@ export default function HomePage() {
                   </Button>
                 </Link>
                 <Link href="/how-it-works">
-                  <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="w-full sm:w-auto"
+                  >
                     {t("home.cta.learnMore")}
                   </Button>
                 </Link>
@@ -169,8 +204,8 @@ export default function HomePage() {
             </div>
             <div className="md:w-1/2">
               <div className="w-full h-48 sm:h-64 rounded-lg overflow-hidden relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1000" 
+                <img
+                  src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1000"
                   alt="Join football community"
                   className="w-full h-full object-cover"
                 />
