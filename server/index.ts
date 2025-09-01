@@ -1,10 +1,42 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import VisitorTracker from "./visitor-tracker";
+import SEOGenerator from "./seo-generator";
+import { matchCleanupService } from "./match-cleanup";
+
+console.log('DATABASE_URL:', process.env.DATABASE_URL);
+
+// Initialisation des modules SEO et Analytics
+const visitorTracker = new VisitorTracker();
+const seoGenerator = new SEOGenerator(process.env.DOMAIN ? `https://${process.env.DOMAIN}` : 'http://localhost:5001');
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Middleware de tracking des visiteurs
+app.use(visitorTracker.trackVisitor);
+
+// Middleware SEO
+app.use(seoGenerator.injectSEOMiddleware);
+
+// Configuration CORS pour permettre les credentials
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Allow-Origin', req.headers.origin || '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+  
+  if (req.method === 'OPTIONS') {
+    res.sendStatus(200);
+  } else {
+    next();
+  }
+});
 
 app.use((req, res, next) => {
   const start = Date.now();
@@ -59,12 +91,24 @@ app.use((req, res, next) => {
   // ALWAYS serve the app on port 5000
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
-  const port = 5000;
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true,
-  }, () => {
+  const port = Number(process.env.PORT) || 5000;
+  server.listen(port, "127.0.0.1", () => {
     log(`serving on port ${port}`);
+    
+    // Démarrer le service de nettoyage automatique des matchs expirés
+    // Nettoyage toutes les 2 heures (120 minutes)
+    if (process.env.NODE_ENV === 'production') {
+      matchCleanupService.start(120);
+    } else {
+      // En développement, nettoyage plus fréquent pour les tests (30 minutes)
+      matchCleanupService.start(30);
+    }
   });
 })();
+
+if (process.env.NO_DB === 'true') {
+  console.log('Mode sans base de données activé');
+  // Ne pas initialiser la connexion à la BDD ici
+} else {
+  // Initialisation normale de la BDD
+}

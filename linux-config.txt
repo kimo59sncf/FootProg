@@ -1,0 +1,85 @@
+# Configuration de déploiement pour serveur Linux
+# Modifiez ces valeurs selon votre serveur
+
+# ===========================================
+# CONFIGURATION SERVEUR
+# ===========================================
+
+# Informations du serveur
+SERVER_IP="VOTRE_IP_SERVEUR"              # ex: 192.168.1.100
+SERVER_USER="footprog"                     # utilisateur pour le déploiement
+SERVER_SSH_PORT="22"                       # port SSH (généralement 22)
+
+# Domaine et SSL
+DOMAIN_NAME="votre-domaine.com"            # ex: footprog.example.com
+EMAIL_SSL="votre-email@exemple.com"        # email pour certbot SSL
+
+# Chemins sur le serveur
+APP_PATH="/var/www/footprog"               # chemin de l'application
+LOG_PATH="/var/log/footprog"               # chemin des logs
+BACKUP_PATH="/var/backups/footprog"        # chemin des sauvegardes
+
+# Configuration de l'application
+APP_PORT="5000"                            # port de l'application
+NODE_ENV="production"                      # environnement
+
+# Base de données
+DB_PATH="/var/www/footprog/footprog.sqlite"
+
+# ===========================================
+# INSTRUCTIONS DE CONFIGURATION
+# ===========================================
+
+# 1. PRÉPARATION DU SERVEUR
+# -------------------------
+# Connectez-vous à votre serveur Linux et exécutez:
+# sudo wget https://raw.githubusercontent.com/votre-repo/server-setup.sh
+# sudo chmod +x server-setup.sh
+# sudo ./server-setup.sh
+
+# Ou copiez le fichier server-setup.sh sur votre serveur et exécutez:
+# sudo bash server-setup.sh
+
+# 2. CONFIGURATION DNS
+# --------------------
+# Configurez votre nom de domaine pour pointer vers l'IP de votre serveur:
+# Type A: votre-domaine.com → VOTRE_IP_SERVEUR
+# Type A: www.votre-domaine.com → VOTRE_IP_SERVEUR
+
+# 3. CLÉS SSH (Recommandé)
+# ------------------------
+# Générez une paire de clés SSH sur votre machine locale:
+# ssh-keygen -t rsa -b 4096 -C "votre-email@exemple.com"
+# 
+# Copiez la clé publique sur le serveur:
+# ssh-copy-id footprog@VOTRE_IP_SERVEUR
+
+# 4. DÉPLOIEMENT
+# --------------
+# Modifiez les variables ci-dessus avec vos vraies valeurs
+# Puis exécutez depuis votre machine Windows:
+# .\deploy.ps1
+
+# 5. CONFIGURATION SSL
+# --------------------
+# Après le premier déploiement, connectez-vous au serveur et exécutez:
+# sudo certbot --nginx -d votre-domaine.com -d www.votre-domaine.com
+
+# ===========================================
+# COMMANDES UTILES
+# ===========================================
+
+# Vérifier le statut de l'application:
+# sudo systemctl status footprog
+
+# Voir les logs:
+# sudo journalctl -u footprog -f
+
+# Redémarrer l'application:
+# sudo systemctl restart footprog
+
+# Vérifier les processus PM2:
+# sudo -u footprog pm2 list
+
+# Sauvegarder la base de données:
+# sudo -u footprog cp /var/www/footprog/footprog.sqlite /var/backups/footprog/footprog-$(date +%Y%m%d).sqlite

@@ -10,6 +10,7 @@ import FindMatches from "@/pages/find-matches";
 import CreateMatch from "@/pages/create-match";
 import MatchDetail from "@/pages/match-detail";
 import HowItWorks from "@/pages/how-it-works";
+import { CalendarPage } from "@/pages/calendar-page";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/lib/protected-route";
 import Header from "@/components/layout/header";
@@ -22,6 +23,7 @@ function Router() {
       <Route path="/" component={HomePage} />
       <Route path="/auth" component={AuthPage} />
       <Route path="/find-matches" component={FindMatches} />
+      <Route path="/calendar" component={CalendarPage} />
       <ProtectedRoute path="/create-match" component={CreateMatch} />
       <Route path="/match/:id" component={MatchDetail} />
       <Route path="/how-it-works" component={HowItWorks} />

@@ -146,6 +146,7 @@ export default function FindMatches() {
                     match={match} 
                     onJoin={handleJoinMatch}
                     joinLoading={joinMatchId === match.id && joinMutation.isPending}
+                    showBothButtons={true}
                   />
                 ))}
               </div>
@@ -168,12 +169,20 @@ export default function FindMatches() {
                 <MapView 
                   location={filters.location || t("findMatches.yourArea")} 
                   className="h-full"
+                  matches={matches?.map(match => ({
+                    id: match.id,
+                    title: match.title,
+                    coordinates: match.coordinates || undefined,
+                    location: match.location
+                  })) || []}
                 />
                 
-                {/* In a real implementation, markers would be added for each match */}
+                {/* Message d'information sur les marqueurs */}
                 {!isLoading && matches && matches.length > 0 && (
-                  <div className="absolute inset-0 pointer-events-none">
-                    {/* This is a placeholder for match markers that would be placed on the map */}
+                  <div className="absolute top-4 right-4 bg-white bg-opacity-90 p-2 rounded-lg shadow-sm">
+                    <p className="text-xs text-gray-600">
+                      ⚽ {matches.length} {matches.length === 1 ? t("findMatches.matchFound") : t("findMatches.matchesFound")}
+                    </p>
                   </div>
                 )}
               </div>

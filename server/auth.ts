@@ -4,7 +4,7 @@ import { Express, Request, Response, NextFunction } from "express";
 import session from "express-session";
 import { scrypt, randomBytes, timingSafeEqual } from "crypto";
 import { promisify } from "util";
-import { storage } from "./storage";
+import { storage } from "./storage-factory";
 import { User as SelectUser, insertUserSchema } from "@shared/schema";
 import { z } from "zod";
 
@@ -38,17 +38,19 @@ const registrationSchema = insertUserSchema.extend({
 
 export function setupAuth(app: Express) {
   const sessionSettings: session.SessionOptions = {
-    secret: process.env.SESSION_SECRET || "football-connect-session-secret",
-    resave: true,
-    saveUninitialized: true,
+    secret: process.env.SESSION_SECRET || "football-connect-session-secret-very-long-and-random",
+    resave: false, // Ne pas sauvegarder si rien n'a changé
+    saveUninitialized: false, // Ne pas créer de session vide
     store: storage.sessionStore,
     cookie: {
       secure: false, // Set to false for development
       maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
       httpOnly: true,
       sameSite: 'lax',
-      path: '/'
-    }
+      path: '/' // Assurer que le cookie est valide pour tout le site
+    },
+    name: 'footprog.sid', // Nom personnalisé pour éviter les conflits
+    rolling: true // Étendre la durée de vie du cookie à chaque requête
   };
 
   app.set("trust proxy", 1);
@@ -71,12 +73,19 @@ export function setupAuth(app: Express) {
     }),
   );
 
-  passport.serializeUser((user, done) => done(null, user.id));
+  passport.serializeUser((user, done) => {
+    console.log('Serializing user:', user.id);
+    done(null, user.id);
+  });
+  
   passport.deserializeUser(async (id: number, done) => {
     try {
+      console.log('Deserializing user ID:', id, 'Session store type:', typeof storage.sessionStore);
       const user = await storage.getUser(id);
+      console.log('Found user:', user ? { id: user.id, username: user.username } : 'not found');
       done(null, user);
     } catch (error) {
+      console.error('Error deserializing user:', error);
       done(error);
     }
   });
@@ -111,6 +120,10 @@ export function setupAuth(app: Express) {
   });
 
   app.post("/api/login", (req, res, next) => {
+    console.log("=== Login attempt ===");
+    console.log("Request cookies:", req.headers.cookie);
+    console.log("Session ID before login:", req.sessionID);
+    
     passport.authenticate("local", (err: Error | null, user: SelectUser | false, info: { message: string } | undefined) => {
       if (err) return next(err);
       if (!user) {
@@ -126,6 +139,7 @@ export function setupAuth(app: Express) {
           
           // Add a debug log to check session ID
           console.log("Session ID after login:", req.sessionID);
+          console.log("Setting cookie in response");
           
           // Remove password from response
           const { password, ...userWithoutPassword } = user;
@@ -144,9 +158,13 @@ export function setupAuth(app: Express) {
 
   app.get("/api/user", (req, res) => {
     // Log for debugging
-    console.log("Session ID in /api/user:", req.sessionID);
+    console.log("=== /api/user request ===");
+    console.log("Session ID:", req.sessionID);
     console.log("Is authenticated:", req.isAuthenticated());
-    console.log("Session data:", req.session);
+    console.log("Session data:", JSON.stringify(req.session, null, 2));
+    console.log("User in session:", req.user ? { id: req.user.id, username: req.user.username } : undefined);
+    console.log("Cookies received:", req.headers.cookie);
+    console.log("=========================");
     
     if (!req.isAuthenticated()) {
       return res.sendStatus(401);
@@ -155,5 +173,15 @@ export function setupAuth(app: Express) {
     // Remove password from response
     const { password, ...userWithoutPassword } = req.user;
     res.json(userWithoutPassword);
+  });
+
+  // Endpoint de debug temporaire
+  app.get("/api/debug/session", (req, res) => {
+    res.json({
+      sessionID: req.sessionID,
+      isAuthenticated: req.isAuthenticated(),
+      user: req.user,
+      session: req.session
+    });
   });
 }

@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/sheet";
 import { useAuth } from "@/hooks/use-auth";
 import LanguageSwitcher from "./language-switcher";
-import { Menu, LogOut, User as UserIcon, ChevronDown, Home, Search, Plus, HelpCircle, Volleyball } from "lucide-react";
+import { Menu, LogOut, User as UserIcon, ChevronDown, Home, Search, Plus, HelpCircle, Volleyball, CalendarIcon } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -31,6 +31,7 @@ export default function Header() {
   const navLinks = [
     { href: "/", label: t("nav.home"), icon: <Home className="h-4 w-4 mr-2" /> },
     { href: "/find-matches", label: t("nav.findMatch"), icon: <Search className="h-4 w-4 mr-2" /> },
+    { href: "/calendar", label: "Calendrier", icon: <CalendarIcon className="h-4 w-4 mr-2" /> },
     { href: "/create-match", label: t("nav.createMatch"), icon: <Plus className="h-4 w-4 mr-2" /> },
     { href: "/how-it-works", label: t("nav.howItWorks"), icon: <HelpCircle className="h-4 w-4 mr-2" /> },
   ];

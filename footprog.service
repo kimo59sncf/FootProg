@@ -1,0 +1,28 @@
+[Unit]
+Description=FootProg Application
+Documentation=https://github.com/your-repo/footprog
+After=network.target
+
+[Service]
+Type=simple
+User=footprog
+WorkingDirectory=/var/www/footprog
+Environment=NODE_ENV=production
+Environment=PORT=3000
+Environment=USE_SQLITE=true
+ExecStart=/usr/bin/node server/index.js
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=footprog
+
+# Limites de sécurité
+LimitNOFILE=65536
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/var/www/footprog
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

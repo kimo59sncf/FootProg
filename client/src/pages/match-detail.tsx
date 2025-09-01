@@ -8,12 +8,15 @@ import { useState, useRef, useEffect } from "react";
 import { MatchWithDetails } from "@shared/schema";
 import { Button } from "@/components/ui/button";
 import { MapView } from "@/components/ui/map-view";
+import { DebugMap } from "@/components/ui/debug-map";
+import { SimpleMapView } from "@/components/ui/simple-map-view";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { DeleteMatchButton } from "@/components/ui/delete-match-button";
 import { format } from "date-fns";
 import { fr, enUS } from "date-fns/locale";
 import { Calendar, Clock, ChevronsRight, CheckCircle, MapPin, MessageCircle, Send } from "lucide-react";
@@ -186,8 +189,8 @@ export default function MatchDetail() {
     );
   }
 
-  // If error or match not found
-  if (error || !match) {
+  // If error or match not found (but only after loading is complete)
+  if (!isLoading && (error || !match)) {
     return (
       <div className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -280,7 +283,7 @@ export default function MatchDetail() {
                 ) : (
                   <Button 
                     className="mt-3 w-full" 
-                    variant="accent"
+                    variant="default"
                     onClick={handleJoinMatch}
                     disabled={joinMutation.isPending || confirmedParticipants.length >= match.playersTotal}
                   >
@@ -291,6 +294,27 @@ export default function MatchDetail() {
                         t("match.joinThisMatch")
                     }
                   </Button>
+                )}
+                
+                {/* Bouton de suppression pour le créateur */}
+                {isCreator && (
+                  <DeleteMatchButton
+                    matchId={match.id}
+                    matchTitle={match.title}
+                    isCreator={isCreator}
+                    onDeleted={() => {
+                      toast({
+                        title: "Match supprimé",
+                        description: "Le match a été supprimé avec succès",
+                        variant: "default"
+                      });
+                      // Rediriger vers la page d'accueil après suppression
+                      window.location.href = "/";
+                    }}
+                    variant="destructive"
+                    size="default"
+                    showText={true}
+                  />
                 )}
               </div>
             </div>
@@ -335,10 +359,16 @@ export default function MatchDetail() {
                     
                     <div className="mt-6">
                       <h4 className="font-medium text-gray-800 mb-3">{t("map.location")}</h4>
-                      <MapView 
+                      <DebugMap 
                         location={match.location} 
                         coordinates={match.coordinates}
                       />
+                      <div className="mt-4">
+                        <SimpleMapView 
+                          location={match.location} 
+                          coordinates={match.coordinates}
+                        />
+                      </div>
                     </div>
                   </CardContent>
                 </Card>

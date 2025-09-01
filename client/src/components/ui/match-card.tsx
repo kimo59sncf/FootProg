@@ -10,13 +10,18 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 interface MatchCardProps {
-  match: Match & { creator: User };
+  match: Match & { 
+    creator: User;
+    currentParticipants?: number;
+    availableSpots?: number;
+  };
   participants?: { userId: number; status: string }[];
   onJoin?: (matchId: number) => void;
   joinLoading?: boolean;
+  showBothButtons?: boolean; // Nouvelle prop pour afficher les deux boutons
 }
 
-export function MatchCard({ match, participants = [], onJoin, joinLoading }: MatchCardProps) {
+export function MatchCard({ match, participants = [], onJoin, joinLoading, showBothButtons = false }: MatchCardProps) {
   const { t, i18n } = useTranslation();
   const locale = i18n.language === "fr" ? fr : enUS;
   
@@ -38,7 +43,9 @@ export function MatchCard({ match, participants = [], onJoin, joinLoading }: Mat
   const formattedEndTime = format(endTime, "HH:mm");
   
   // Count confirmed participants
-  const confirmedCount = participants.filter(p => p.status === "confirmed").length || 0;
+  const confirmedCount = match.currentParticipants ?? (participants.filter(p => p.status === "confirmed").length || 0);
+  const availableSpots = match.availableSpots ?? (match.playersTotal - confirmedCount);
+  const isFull = availableSpots <= 0;
   
   return (
     <Card className="h-full overflow-hidden hover:shadow-md transition duration-300 flex flex-col">
@@ -59,8 +66,18 @@ export function MatchCard({ match, participants = [], onJoin, joinLoading }: Mat
           />
         </div>
         
-        <div className="absolute bottom-4 right-4 bg-white bg-opacity-90 text-gray-800 text-sm font-semibold px-3 py-1 rounded-full">
+        <div className={`absolute bottom-4 right-4 bg-white bg-opacity-90 text-sm font-semibold px-3 py-1 rounded-full ${isFull ? 'text-red-600' : 'text-gray-800'}`}>
           {confirmedCount} / {match.playersTotal} {t("match.players")}
+          {availableSpots > 0 && (
+            <span className="text-green-600 ml-1">
+              ({availableSpots} {t("match.spotsLeft", "spots left")})
+            </span>
+          )}
+          {isFull && (
+            <span className="text-red-600 ml-1 font-bold">
+              {t("match.full", "FULL")}
+            </span>
+          )}
         </div>
       </div>
       
@@ -107,18 +124,34 @@ export function MatchCard({ match, participants = [], onJoin, joinLoading }: Mat
             </span>
           </div>
           
-          {onJoin ? (
+          {showBothButtons ? (
+            <div className="flex gap-2">
+              <Link href={`/match/${match.id}`}>
+                <Button size="sm" variant="outline">{t("match.details")}</Button>
+              </Link>
+              {onJoin && (
+                <Button 
+                  size="sm" 
+                  onClick={() => onJoin(match.id)}
+                  variant="default" 
+                  disabled={joinLoading || isFull}
+                >
+                  {joinLoading ? t("match.joining") : isFull ? t("match.full", "Full") : t("match.join")}
+                </Button>
+              )}
+            </div>
+          ) : onJoin ? (
             <Button 
               size="sm" 
               onClick={() => onJoin(match.id)}
-              variant="accent" 
-              disabled={joinLoading}
+              variant="default" 
+              disabled={joinLoading || isFull}
             >
-              {joinLoading ? t("match.joining") : t("match.join")}
+              {joinLoading ? t("match.joining") : isFull ? t("match.full", "Full") : t("match.join")}
             </Button>
           ) : (
             <Link href={`/match/${match.id}`}>
-              <Button size="sm" variant="accent">{t("match.details")}</Button>
+              <Button size="sm" variant="default">{t("match.details")}</Button>
             </Link>
           )}
         </div>

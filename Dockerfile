@@ -1,38 +1,25 @@
-
 # Image de base Node.js
 FROM node:20-slim
 
 # Définition du répertoire de travail
 WORKDIR /app
 
-# Variables d'environnement
-ENV NODE_ENV=production
-ENV PORT=5000
-
-# Installation des dépendances de construction
+# Installation des dépendances
 COPY package*.json ./
-RUN npm ci
+RUN npm install
 
 # Copie des fichiers du projet
 COPY . .
 
-# Construction du frontend
+# Variables d'environnement pour la base de données
+ENV DATABASE_URL="postgresql://neondb_owner:npg_i9FdKvX0mqfx@ep-autumn-tooth-a63j6amr.us-west-2.aws.neon.tech/neondb?sslmode=require"
+ENV NODE_ENV=production
+
+# Build du projet TypeScript
 RUN npm run build
 
 # Exposition du port
 EXPOSE 5000
 
 # Commande de démarrage
-CMD ["npm", "run", "start"]
-
-# Configuration de santé
-HEALTHCHECK --interval=30s --timeout=3s \
-  CMD curl -f http://localhost:5000/api/health || exit 1
-
-# Optimisations
-RUN npm cache clean --force
-
-# Métadonnées
-LABEL maintainer="FootballConnect Team" \
-      version="1.0" \
-      description="Application de gestion de matchs de football"
+CMD ["npm", "start"]
