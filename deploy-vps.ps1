@@ -2,10 +2,10 @@
 # Usage: .\deploy-vps.ps1
 
 param(
-    [string]$VPS_IP = "148.169.40.11",
+    [string]$VPS_IP = "149.102.152.126",
     [string]$USERNAME = "root",
     [string]$APP_DIR = "/var/www/footprog",
-    [string]$DOMAIN = "votre-domaine.com"
+    [string]$DOMAIN = "www.footprog.com"
 )
 
 Write-Host "🚀 Déploiement FootProg sur VPS $VPS_IP" -ForegroundColor Green
