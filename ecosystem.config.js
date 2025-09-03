@@ -1,8 +1,8 @@
-module.exports = {
+export default {
   apps: [
     {
       name: 'footprog',
-      script: 'server/index.js',
+      script: 'dist/index.js',
       instances: 'max', // Utilise tous les CPU disponibles
       exec_mode: 'cluster',
       env: {
@@ -31,7 +31,7 @@ module.exports = {
       max_memory_restart: '1G',
       
       // Variables d'environnement
-      env_file: '.env.production',
+      env_file: '.env',
       
       // Monitoring
       monitoring: false,
