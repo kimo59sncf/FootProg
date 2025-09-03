@@ -2,11 +2,9 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 import express, { type Request, Response, NextFunction } from "express";
-import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import VisitorTracker from "./visitor-tracker";
 import SEOGenerator from "./seo-generator";
-import { matchCleanupService } from "./match-cleanup";
 
 console.log('DATABASE_URL:', process.env.DATABASE_URL);
 
@@ -69,7 +67,31 @@ app.use((req, res, next) => {
 });
 
 (async () => {
-  const server = await registerRoutes(app);
+  let server;
+  
+  if (process.env.NO_DB === 'true') {
+    console.log('Mode sans base de données activé - routes API désactivées');
+    const { createServer } = await import('http');
+    server = createServer(app);
+    
+    // Route de base pour tester
+    app.get('/api/health', (req, res) => {
+      res.json({ status: 'ok', mode: 'no-db' });
+    });
+  } else {
+    console.log('Mode base de données activé - chargement des routes');
+    const { registerRoutes } = await import("./routes");
+    const { matchCleanupService } = await import("./match-cleanup");
+    
+    server = await registerRoutes(app);
+    
+    // Démarrer le service de nettoyage automatique des matchs expirés
+    if (process.env.NODE_ENV === 'production') {
+      matchCleanupService.start(120);
+    } else {
+      matchCleanupService.start(30);
+    }
+  }
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
     const status = err.status || err.statusCode || 500;
@@ -94,21 +116,5 @@ app.use((req, res, next) => {
   const port = Number(process.env.PORT) || 5000;
   server.listen(port, "127.0.0.1", () => {
     log(`serving on port ${port}`);
-    
-    // Démarrer le service de nettoyage automatique des matchs expirés
-    // Nettoyage toutes les 2 heures (120 minutes)
-    if (process.env.NODE_ENV === 'production') {
-      matchCleanupService.start(120);
-    } else {
-      // En développement, nettoyage plus fréquent pour les tests (30 minutes)
-      matchCleanupService.start(30);
-    }
   });
 })();
-
-if (process.env.NO_DB === 'true') {
-  console.log('Mode sans base de données activé');
-  // Ne pas initialiser la connexion à la BDD ici
-} else {
-  // Initialisation normale de la BDD
-}
