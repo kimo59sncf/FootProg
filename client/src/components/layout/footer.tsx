@@ -91,30 +91,57 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Language and newsletter */}
+          {/* Language and Developer Contact */}
           <div>
             <h3 className="font-medium text-lg mb-4">{t("footer.language")}</h3>
             <div className="mb-6">
               <LanguageSwitcher />
             </div>
 
-            <h3 className="font-medium text-lg mt-6 mb-4">{t("footer.newsletter")}</h3>
-            <form className="flex">
-              <Input
-                type="email"
-                placeholder={t("footer.yourEmail")}
-                className="bg-gray-700 text-white placeholder-gray-400 border-gray-600 rounded-l-md focus:ring-primary flex-grow"
-              />
-              <Button type="submit" className="rounded-l-none">
-                →
-              </Button>
-            </form>
+            <h3 className="font-medium text-lg mt-6 mb-4">Contact Développeur</h3>
+            <div className="bg-gray-700 rounded-lg p-4 space-y-3">
+              <div className="flex items-center">
+                <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center mr-3">
+                  <span className="text-white font-bold text-sm">MK</span>
+                </div>
+                <div>
+                  <div className="font-semibold text-white">MK-DEV</div>
+                  <div className="text-gray-300 text-sm">Développeur Full-Stack</div>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <a
+                  href="mailto:karim.dev59@gmail.com"
+                  className="flex items-center text-gray-300 hover:text-primary transition-colors"
+                >
+                  <span className="mr-2">📧</span>
+                  karim.dev59@gmail.com
+                </a>
+                <a
+                  href="tel:+33763349311"
+                  className="flex items-center text-gray-300 hover:text-primary transition-colors"
+                >
+                  <span className="mr-2">📱</span>
+                  07 63 34 93 11
+                </a>
+              </div>
+
+              <div className="pt-2 border-t border-gray-600">
+                <p className="text-xs text-gray-400">
+                  🚀 Passionné par le développement d'applications web innovantes
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-700 text-center">
+        <div className="mt-12 pt-8 border-t border-gray-700 text-center space-y-2">
           <p className="text-gray-400">
             &copy; {new Date().getFullYear()} FootballConnect. {t("footer.allRightsReserved")}
+          </p>
+          <p className="text-gray-500 text-sm">
+            Développé avec ❤️ par <span className="text-primary font-medium">MK-DEV</span> | karim.dev59@gmail.com
           </p>
         </div>
       </div>
