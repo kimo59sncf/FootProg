@@ -24,6 +24,11 @@ let pool: Pool | null = null;
 let db: any = null;
 
 // Choisir entre SQLite et PostgreSQL
+console.log('=== DIAGNOSTIC DB INITIALIZATION ===');
+console.log('NO_DB:', process.env.NO_DB);
+console.log('USE_SQLITE:', process.env.USE_SQLITE);
+console.log('DATABASE_URL:', process.env.DATABASE_URL);
+
 if (process.env.NO_DB === 'true') {
   console.log('Mode sans base de données activé - DB désactivée');
   // Ne pas initialiser de DB
@@ -32,6 +37,7 @@ if (process.env.NO_DB === 'true') {
   const { sqlite, db: sqliteDb } = initializeSQLiteDB();
   db = sqliteDb;
   pool = null; // SQLite n'utilise pas de pool
+  console.log('DB SQLite initialisée:', db ? 'SUCCESS' : 'FAILED');
 } else {
   console.log('Utilisation de PostgreSQL comme base de données');
   // Setup websocket for Neon serverless

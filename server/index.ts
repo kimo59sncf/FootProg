@@ -14,6 +14,8 @@ import VisitorTracker from "./visitor-tracker";
 import SEOGenerator from "./seo-generator";
 
 console.log('DATABASE_URL:', process.env.DATABASE_URL);
+console.log('USE_SQLITE:', process.env.USE_SQLITE);
+console.log('NODE_ENV:', process.env.NODE_ENV);
 
 // Initialisation des modules SEO et Analytics
 const visitorTracker = new VisitorTracker();

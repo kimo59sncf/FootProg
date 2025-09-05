@@ -65,8 +65,12 @@ export class MatchCleanupService {
    */
   public async cleanup(): Promise<number> {
     try {
+      console.log('=== MATCH CLEANUP DEBUG ===');
+      console.log('DB object:', db ? 'DEFINED' : 'NULL/UNDEFINED');
+      console.log('DB type:', typeof db);
+
       const now = new Date();
-      
+
       // Trouver les matchs expirés (date + durée < maintenant)
       const expiredMatches = await db
         .select()

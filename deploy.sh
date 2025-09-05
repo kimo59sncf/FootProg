@@ -8,7 +8,7 @@ set -e
 ENVIRONMENT=${1:-production}
 APP_NAME="footprog"
 SERVER_USER="footprog"
-SERVER_HOST="VOTRE_IP_OU_DOMAINE"  # Remplacez par votre IP ou domaine
+SERVER_HOST="149.102.152.126"  # Remplacez par votre IP ou domaine
 SERVER_PATH="/var/www/$APP_NAME"
 BACKUP_PATH="/var/backups/$APP_NAME"
 LOG_PATH="/var/log/$APP_NAME"
@@ -96,7 +96,7 @@ ssh $SERVER_USER@$SERVER_HOST "
 # 10. Vérification finale
 echo "✅ Vérification du déploiement..."
 sleep 5
-HEALTH_CHECK=$(curl -s -o /dev/null -w "%{http_code}" http://$SERVER_HOST/health)
+HEALTH_CHECK=$(curl -s -o /dev/null -w "%{http_code}" https://$SERVER_HOST/health)
 if [ "$HEALTH_CHECK" = "200" ]; then
   echo "🎉 Déploiement réussi!"
   ssh $SERVER_USER@$SERVER_HOST "sudo rm -rf $SERVER_PATH.old"
