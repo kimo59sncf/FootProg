@@ -1,7 +1,7 @@
 {
   "totalVisitors": 0,
   "uniqueVisitors": 0,
-  "pageViews": 1546,
+  "pageViews": 1556,
   "countries": {},
   "pages": {
     "/": 32,
@@ -110,10 +110,10 @@
     "/@fs/C:/Users/7810805F/Downloads/FootProg/FootProg/node_modules/.vite/deps/@radix-ui_react-select.js": 6,
     "/@fs/C:/Users/7810805F/Downloads/FootProg/FootProg/node_modules/.vite/deps/chunk-43G6IMPT.js": 6,
     "/@fs/C:/Users/7810805F/Downloads/FootProg/FootProg/node_modules/.vite/deps/chunk-T6UD2AIQ.js": 1,
-    "/api/user": 26,
+    "/api/user": 28,
     "/api/matches": 35,
     "/images/entr.png": 26,
-    "/favicon.ico": 87,
+    "/favicon.ico": 89,
     "/api/login": 3,
     "/api/matches/2": 4,
     "/api/matches/1": 1,
@@ -143,7 +143,7 @@
     "/api/matches/4/messages": 1,
     "/src/components/ui/debug-map.tsx": 13,
     "/src/components/ui/simple-map-view.tsx": 13,
-    "/auth": 4,
+    "/auth": 6,
     "/api/matches/5": 10,
     "/api/register": 5,
     "/api/matches/5/join": 1,
@@ -157,10 +157,10 @@
     "/api/auth/create-test-user": 4,
     "/assets/leaflet-src-DOFGFQd1.js": 2,
     "/assets/index-CrojTo2t.js": 3,
-    "/assets/index-DLAW5i4j.css": 6,
+    "/assets/index-DLAW5i4j.css": 8,
     "/assets/leaflet-src-CqXeyTXm.js": 2,
     "/api/matches/6": 1,
-    "/assets/index-Ca0Rc37o.js": 2,
+    "/assets/index-Ca0Rc37o.js": 4,
     "/images/football/hero-image.svg": 2,
     "/images/football/search-icon.svg": 2,
     "/images/football/organize-icon.svg": 2,
@@ -168,10 +168,10 @@
     "/api/logout": 1
   },
   "referrers": {
-    "localhost": 1507
+    "localhost": 1517
   },
   "devices": {
-    "desktop": 1518,
+    "desktop": 1528,
     "mobile": 28
   },
   "dailyStats": {
@@ -193,7 +193,7 @@
     },
     "2025-09-05": {
       "visitors": 0,
-      "pageViews": 59
+      "pageViews": 69
     }
   }
 }

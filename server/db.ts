@@ -33,13 +33,13 @@ if (process.env.NO_DB === 'true') {
   console.log('Mode sans base de données activé - DB désactivée');
   // Ne pas initialiser de DB
 } else if (process.env.USE_SQLITE === 'true') {
-  console.log('Utilisation de SQLite comme base de données');
+  console.log('✅ Utilisation de SQLite comme base de données');
   const { sqlite, db: sqliteDb } = initializeSQLiteDB();
   db = sqliteDb;
   pool = null; // SQLite n'utilise pas de pool
   console.log('DB SQLite initialisée:', db ? 'SUCCESS' : 'FAILED');
 } else {
-  console.log('Utilisation de PostgreSQL comme base de données');
+  console.log('❌ Utilisation de PostgreSQL comme base de données');
   // Setup websocket for Neon serverless
   neonConfig.webSocketConstructor = ws;
 

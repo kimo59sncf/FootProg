@@ -12,6 +12,7 @@ import express, { type Request, Response, NextFunction } from "express";
 import { setupVite, serveStatic, log } from "./vite";
 import VisitorTracker from "./visitor-tracker";
 import SEOGenerator from "./seo-generator";
+import './db'; // Initialise la base de données au démarrage
 
 console.log('DATABASE_URL:', process.env.DATABASE_URL);
 console.log('USE_SQLITE:', process.env.USE_SQLITE);
